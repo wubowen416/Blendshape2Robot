@@ -7,18 +7,44 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5A080DE529936E50002159FB /* BlendshapeCvtModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A080DE429936E50002159FB /* BlendshapeCvtModel.swift */; };
+		5A0A58A82994DE1500BC581A /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0A58A72994DE1500BC581A /* SettingView.swift */; };
+		5A0A58AD2994DF0600BC581A /* ArViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0A58AC2994DF0600BC581A /* ArViewModel.swift */; };
+		5A0A58AF2994E93C00BC581A /* ConfigFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0A58AE2994E93C00BC581A /* ConfigFile.swift */; };
+		5A0A58B129960C5600BC581A /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0A58B029960C5600BC581A /* MessageView.swift */; };
+		5A0A58B32996385600BC581A /* MotionTcpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0A58B22996385600BC581A /* MotionTcpClient.swift */; };
+		5A0A58B62996388B00BC581A /* NIO in Frameworks */ = {isa = PBXBuildFile; productRef = 5A0A58B52996388B00BC581A /* NIO */; };
+		5A0A58B8299CBED200BC581A /* MainSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0A58B7299CBED200BC581A /* MainSettingView.swift */; };
+		5A30F72C299E18C6001AA446 /* FaceBlendShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A30F72B299E18C6001AA446 /* FaceBlendShape.swift */; };
+		5A30F72E299E27D0001AA446 /* RigTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A30F72D299E27D0001AA446 /* RigTestView.swift */; };
+		5A30F730299F62EC001AA446 /* ARSessionDelegateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A30F72F299F62EC001AA446 /* ARSessionDelegateExtension.swift */; };
+		5A30F732299F709A001AA446 /* FaceBlendShapeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A30F731299F709A001AA446 /* FaceBlendShapeView.swift */; };
 		5A979D672993611D0024F207 /* Blendshape2RobotApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A979D662993611D0024F207 /* Blendshape2RobotApp.swift */; };
 		5A979D692993611D0024F207 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A979D682993611D0024F207 /* ContentView.swift */; };
 		5A979D6B2993611F0024F207 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A979D6A2993611F0024F207 /* Assets.xcassets */; };
 		5A979D6E2993611F0024F207 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A979D6D2993611F0024F207 /* Preview Assets.xcassets */; };
+		5AF1B33729B5BE28009DC5C5 /* CsvFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF1B33629B5BE28009DC5C5 /* CsvFile.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5A080DE429936E50002159FB /* BlendshapeCvtModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlendshapeCvtModel.swift; sourceTree = "<group>"; };
+		5A0A58A72994DE1500BC581A /* SettingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		5A0A58AC2994DF0600BC581A /* ArViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArViewModel.swift; sourceTree = "<group>"; };
+		5A0A58AE2994E93C00BC581A /* ConfigFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigFile.swift; sourceTree = "<group>"; };
+		5A0A58B029960C5600BC581A /* MessageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
+		5A0A58B22996385600BC581A /* MotionTcpClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionTcpClient.swift; sourceTree = "<group>"; };
+		5A0A58B7299CBED200BC581A /* MainSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSettingView.swift; sourceTree = "<group>"; };
+		5A30F72B299E18C6001AA446 /* FaceBlendShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceBlendShape.swift; sourceTree = "<group>"; };
+		5A30F72D299E27D0001AA446 /* RigTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RigTestView.swift; sourceTree = "<group>"; };
+		5A30F72F299F62EC001AA446 /* ARSessionDelegateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ARSessionDelegateExtension.swift; path = Blendshape2Robot/ARSessionDelegateExtension.swift; sourceTree = SOURCE_ROOT; };
+		5A30F731299F709A001AA446 /* FaceBlendShapeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceBlendShapeView.swift; sourceTree = "<group>"; };
 		5A979D632993611D0024F207 /* Blendshape2Robot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Blendshape2Robot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A979D662993611D0024F207 /* Blendshape2RobotApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Blendshape2RobotApp.swift; sourceTree = "<group>"; };
 		5A979D682993611D0024F207 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		5A979D6A2993611F0024F207 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5A979D6D2993611F0024F207 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		5AF1B33529B5859E009DC5C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		5AF1B33629B5BE28009DC5C5 /* CsvFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CsvFile.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,12 +52,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A0A58B62996388B00BC581A /* NIO in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5A0A58AA2994DEB200BC581A /* views */ = {
+			isa = PBXGroup;
+			children = (
+				5A979D682993611D0024F207 /* ContentView.swift */,
+				5A30F731299F709A001AA446 /* FaceBlendShapeView.swift */,
+				5A0A58A72994DE1500BC581A /* SettingView.swift */,
+				5A0A58B029960C5600BC581A /* MessageView.swift */,
+				5A0A58B7299CBED200BC581A /* MainSettingView.swift */,
+				5A30F72D299E27D0001AA446 /* RigTestView.swift */,
+			);
+			path = views;
+			sourceTree = "<group>";
+		};
+		5A0A58AB2994DED500BC581A /* models */ = {
+			isa = PBXGroup;
+			children = (
+				5A080DE429936E50002159FB /* BlendshapeCvtModel.swift */,
+				5A0A58AE2994E93C00BC581A /* ConfigFile.swift */,
+				5A0A58B22996385600BC581A /* MotionTcpClient.swift */,
+				5A30F72B299E18C6001AA446 /* FaceBlendShape.swift */,
+				5AF1B33629B5BE28009DC5C5 /* CsvFile.swift */,
+			);
+			path = models;
+			sourceTree = "<group>";
+		};
 		5A979D5A2993611D0024F207 = {
 			isa = PBXGroup;
 			children = (
@@ -51,8 +103,12 @@
 		5A979D652993611D0024F207 /* Blendshape2Robot */ = {
 			isa = PBXGroup;
 			children = (
+				5AF1B33529B5859E009DC5C5 /* Info.plist */,
 				5A979D662993611D0024F207 /* Blendshape2RobotApp.swift */,
-				5A979D682993611D0024F207 /* ContentView.swift */,
+				5A0A58AC2994DF0600BC581A /* ArViewModel.swift */,
+				5A30F72F299F62EC001AA446 /* ARSessionDelegateExtension.swift */,
+				5A0A58AB2994DED500BC581A /* models */,
+				5A0A58AA2994DEB200BC581A /* views */,
 				5A979D6A2993611F0024F207 /* Assets.xcassets */,
 				5A979D6C2993611F0024F207 /* Preview Content */,
 			);
@@ -83,6 +139,9 @@
 			dependencies = (
 			);
 			name = Blendshape2Robot;
+			packageProductDependencies = (
+				5A0A58B52996388B00BC581A /* NIO */,
+			);
 			productName = Blendshape2Robot;
 			productReference = 5A979D632993611D0024F207 /* Blendshape2Robot.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +170,9 @@
 				Base,
 			);
 			mainGroup = 5A979D5A2993611D0024F207;
+			packageReferences = (
+				5A0A58B42996388B00BC581A /* XCRemoteSwiftPackageReference "swift-nio" */,
+			);
 			productRefGroup = 5A979D642993611D0024F207 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -137,8 +199,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A30F730299F62EC001AA446 /* ARSessionDelegateExtension.swift in Sources */,
 				5A979D692993611D0024F207 /* ContentView.swift in Sources */,
+				5A0A58B8299CBED200BC581A /* MainSettingView.swift in Sources */,
+				5A0A58A82994DE1500BC581A /* SettingView.swift in Sources */,
 				5A979D672993611D0024F207 /* Blendshape2RobotApp.swift in Sources */,
+				5A0A58AF2994E93C00BC581A /* ConfigFile.swift in Sources */,
+				5A30F72C299E18C6001AA446 /* FaceBlendShape.swift in Sources */,
+				5A0A58B32996385600BC581A /* MotionTcpClient.swift in Sources */,
+				5A30F72E299E27D0001AA446 /* RigTestView.swift in Sources */,
+				5A080DE529936E50002159FB /* BlendshapeCvtModel.swift in Sources */,
+				5AF1B33729B5BE28009DC5C5 /* CsvFile.swift in Sources */,
+				5A30F732299F709A001AA446 /* FaceBlendShapeView.swift in Sources */,
+				5A0A58B129960C5600BC581A /* MessageView.swift in Sources */,
+				5A0A58AD2994DF0600BC581A /* ArViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,11 +344,15 @@
 				DEVELOPMENT_TEAM = 67SU59PVRY;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Blendshape2Robot/Info.plist;
+				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "";
+				INFOPLIST_KEY_NSRemovableVolumesUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -299,11 +377,15 @@
 				DEVELOPMENT_TEAM = 67SU59PVRY;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Blendshape2Robot/Info.plist;
+				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "";
+				INFOPLIST_KEY_NSRemovableVolumesUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -339,6 +421,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		5A0A58B42996388B00BC581A /* XCRemoteSwiftPackageReference "swift-nio" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-nio.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5A0A58B52996388B00BC581A /* NIO */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5A0A58B42996388B00BC581A /* XCRemoteSwiftPackageReference "swift-nio" */;
+			productName = NIO;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 5A979D5B2993611D0024F207 /* Project object */;
 }
