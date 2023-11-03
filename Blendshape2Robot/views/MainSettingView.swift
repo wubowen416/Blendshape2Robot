@@ -63,6 +63,46 @@ struct MainSettingView: View {
                     }
                     .padding()
             }
+            
+            Divider().gridCellUnsizedAxes(.horizontal)
+            GridRow {
+                Text("SAMPLE FACES")
+                HStack {
+                    Text("Num samples:")
+                        .foregroundColor(.secondary)
+                    TextField("5", value: $arViewModel.numSamples, formatter: NumberFormatter())
+                        .keyboardType(.numberPad)
+                        .accentColor(.accentColor)
+                        .foregroundColor(Color(UIColor.darkGray))
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .onChange(of: arViewModel.numSamples, perform: { value in
+                            arViewModel.num_samples_changed(to: value)
+                        })
+                }
+            }
+            GridRow {
+                Button(action: arViewModel.start_sampling) {
+                    Text("START")
+                        .foregroundStyle(.white)
+                        .padding()
+                }
+                .background(Rectangle()
+                    .fill(Color.blue).cornerRadius(30))
+                Button(action: arViewModel.stop_sampling) {
+                    Text("STOP")
+                        .foregroundStyle(.white)
+                        .padding()
+                }
+                .background(Rectangle()
+                    .fill(Color.blue).cornerRadius(30))
+                Image(systemName: "record.circle")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 40, height: 40)
+                    .foregroundColor((arViewModel.sampleModel?.isSampling ?? true) ? .teal : .orange)
+            }
+            Divider().gridCellUnsizedAxes(.horizontal)
+            
             GridRow {
                 MessageView()
                     .gridCellColumns(2)

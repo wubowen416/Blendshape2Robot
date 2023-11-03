@@ -10,6 +10,7 @@ import simd
 
 class ArViewModel: ObservableObject {
     var blendshapeCvtModel: BlendshapeCvtModel = BlendshapeCvtModel()
+    var sampleModel: SampleModel?
     @Published var remoteHost: String
     @Published var remotePort: Int
     @Published var showStatistics: Bool
@@ -19,6 +20,7 @@ class ArViewModel: ObservableObject {
     @Published var faceBlendShapes = [Float](repeating: 0.0, count: FaceBlendShape.allCases.count)
     @Published var nikolaRigs: [Int] = [Int](repeating: 0, count: 35)
     @Published var isRecording: Bool = false
+    @Published var numSamples: Int = 5
     
     var faceMeshVertices = [vector_float3](repeating: vector_float3(repeating: 0.0), count: 1220)
 
@@ -29,6 +31,7 @@ class ArViewModel: ObservableObject {
         remotePort = blendshapeCvtModel.setting.remotePort
         connected = false
         init_nikola_rigs(&nikolaRigs)
+        self.sampleModel = SampleModel(arViewModel: self)
         collect_messages()
         DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(500),
                                       execute: sync_setting)
@@ -49,6 +52,13 @@ class ArViewModel: ObservableObject {
             blendshapeCvtModel.motionClient.messages.removeAll()
         }
         connected = blendshapeCvtModel.motionClient.connected
+        
+        if let msgs = sampleModel?.messages, !msgs.isEmpty {
+            for msg in msgs {
+                messages.append(msg)
+            }
+            sampleModel?.messages.removeAll()
+        }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(250),
                                       execute: collect_messages)
@@ -123,5 +133,22 @@ class ArViewModel: ObservableObject {
     
     func start_record() {
         
+    }
+    
+    func num_samples_changed(to num: Int) {
+        numSamples = num
+    }
+    
+    func start_sampling() {
+        messages.append("START clicked.")
+        sampleModel?.start_sampling(
+            numSamples: numSamples,
+            motionClient: blendshapeCvtModel.motionClient
+        )
+    }
+    
+    func stop_sampling() {
+        messages.append("STOP clicked.")
+        sampleModel?.stop_sampling()
     }
 }

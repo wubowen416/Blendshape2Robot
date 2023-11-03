@@ -22,7 +22,7 @@ struct ContentView: View {
                     arViewModel.request_save_config()
                 }) {
                     SettingView()
-                        .presentationDetents([.fraction(0.3), .large])
+                        .presentationDetents([.fraction(0.6), .large])
                         .environmentObject(arViewModel)
                 }
             VStack {
