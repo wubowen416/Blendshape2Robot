@@ -27,15 +27,24 @@ struct ContentView: View {
                 }
             VStack {
                 Spacer()
-                Image(systemName: arViewModel.connected ? "record.circle" : "record.circle.fill")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 50, height: 50)
-                    .foregroundColor(.red)
-                    .onTapGesture {
-                        
-                    }
-                    .padding()
+                HStack {
+                    Image(systemName: arViewModel.connected ? "record.circle" : "record.circle.fill")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 50, height: 50)
+                        .foregroundColor(.red)
+                        .onTapGesture {
+                            
+                        }
+                        .padding()
+                    Image(systemName: (arViewModel.sampleModel?.isSampling ?? true) ? "play.circle" : "play.circle.fill")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 50, height: 50)
+                        .foregroundColor(.red)
+                        .padding()
+                }
+                
             }
         }.onLongPressGesture { // double tap is not working!
             if showSetting == false {
