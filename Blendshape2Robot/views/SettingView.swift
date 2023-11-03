@@ -13,8 +13,17 @@ struct SettingView: View {
     var body: some View {
         TabView {
             MainSettingView()
+                .tabItem {
+                    Text("Main Setting")
+                }
             FaceBlendShapeView()
+                .tabItem {
+                    Text("Face Blend Shape")
+                }
             RigTestView()
+                .tabItem {
+                    Text("Rig Test")
+                }
         }
     }
 }
