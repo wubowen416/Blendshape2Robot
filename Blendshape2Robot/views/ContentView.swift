@@ -28,7 +28,7 @@ struct ContentView: View {
             VStack {
                 Spacer()
                 HStack {
-                    Image(systemName: arViewModel.connected ? "record.circle" : "record.circle.fill")
+                    Image(systemName: arViewModel.connected ? "antenna.radiowaves.left.and.right" : "antenna.radiowaves.left.and.right.slash")
                         .resizable()
                         .scaledToFit()
                         .frame(width: 50, height: 50)
@@ -37,7 +37,7 @@ struct ContentView: View {
                             
                         }
                         .padding()
-                    Image(systemName: (arViewModel.sampleModel?.isSampling ?? true) ? "play.circle" : "play.circle.fill")
+                    Image(systemName: (arViewModel.sampleModel?.isSampling ?? true) ? "play" : "play.slash")
                         .resizable()
                         .scaledToFit()
                         .frame(width: 50, height: 50)
