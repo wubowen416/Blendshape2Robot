@@ -13,7 +13,7 @@ class SampleModel {
     var isSampling: Bool = false
     var messages: [String] = []
     var faceBlendShapes = [Float](repeating: 0.0, count: FaceBlendShape.allCases.count)
-    internal var csvFile = CsvFile()
+    private var csvFile = CsvFile()
     
     init(arViewModel: ArViewModel) {
         self.arViewModel = arViewModel
