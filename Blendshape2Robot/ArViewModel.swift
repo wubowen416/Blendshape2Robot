@@ -140,7 +140,6 @@ class ArViewModel: ObservableObject {
     }
     
     func start_sampling() {
-        messages.append("START clicked.")
         sampleModel?.start_sampling(
             numSamples: numSamples,
             motionClient: blendshapeCvtModel.motionClient
@@ -148,7 +147,6 @@ class ArViewModel: ObservableObject {
     }
     
     func stop_sampling() {
-        messages.append("STOP clicked.")
         sampleModel?.stop_sampling()
     }
 }
