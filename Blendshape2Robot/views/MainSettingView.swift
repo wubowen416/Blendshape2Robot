@@ -67,7 +67,8 @@ struct MainSettingView: View {
             Divider().gridCellUnsizedAxes(.horizontal)
             GridRow {
                 Text("SAMPLE FACES")
-                HStack {
+                    .padding()
+                VStack {
                     Text("Num samples:")
                         .foregroundColor(.secondary)
                     TextField("5", value: $arViewModel.numSamples, formatter: NumberFormatter())
@@ -78,28 +79,26 @@ struct MainSettingView: View {
                         .onChange(of: arViewModel.numSamples, perform: { value in
                             arViewModel.num_samples_changed(to: value)
                         })
+                }.padding()
+                ZStack {
+                    Image(systemName: "play.circle")
+                        .font(.system(size: 40))
+                        .onTapGesture {
+                            arViewModel.start_sampling()
+                        }
+                        .scaleEffect((arViewModel.sampleModel?.isSampling ?? true) ? 0 : 1)
+                        .opacity((arViewModel.sampleModel?.isSampling ?? true) ? 0 : 1)
+                        .animation(.interpolatingSpring(stiffness: 170, damping: 15), value: (arViewModel.sampleModel?.isSampling ?? true))
+                    Image(systemName: "stop.circle")
+                        .font(.system(size: 40))
+                        .onTapGesture {
+                            arViewModel.stop_sampling()
+                        }
+                        .scaleEffect((arViewModel.sampleModel?.isSampling ?? true) ? 1 : 0)
+                        .opacity((arViewModel.sampleModel?.isSampling ?? true) ? 1 : 0)
+                        .animation(.interpolatingSpring(stiffness: 170, damping: 15), value: !(arViewModel.sampleModel?.isSampling ?? true))
+
                 }
-            }
-            GridRow {
-                Button(action: arViewModel.start_sampling) {
-                    Text("START")
-                        .foregroundStyle(.white)
-                        .padding()
-                }
-                .background(Rectangle()
-                    .fill(Color.blue).cornerRadius(30))
-                Button(action: arViewModel.stop_sampling) {
-                    Text("STOP")
-                        .foregroundStyle(.white)
-                        .padding()
-                }
-                .background(Rectangle()
-                    .fill(Color.blue).cornerRadius(30))
-                Image(systemName: "record.circle")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 40, height: 40)
-                    .foregroundColor((arViewModel.sampleModel?.isSampling ?? true) ? .teal : .orange)
             }
             Divider().gridCellUnsizedAxes(.horizontal)
             
