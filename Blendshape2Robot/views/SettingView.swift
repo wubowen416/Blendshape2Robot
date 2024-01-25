@@ -14,15 +14,23 @@ struct SettingView: View {
         TabView {
             MainSettingView()
                 .tabItem {
-                    Text("Main Setting")
+                    Text("MainSetting")
                 }
             FaceBlendShapeView()
                 .tabItem {
-                    Text("Face Blend Shape")
+                    Text("FaceBlendShape")
                 }
             RigTestView()
                 .tabItem {
-                    Text("Rig Test")
+                    Text("RigTest")
+                }
+            SampleFaceView()
+                .tabItem {
+                    Text("SampleFace")
+                }
+            TestSolverView()
+                .tabItem {
+                    Text("TestSolver")
                 }
         }
     }

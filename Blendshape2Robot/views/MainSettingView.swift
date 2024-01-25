@@ -30,27 +30,27 @@ struct MainSettingView: View {
             }
             GridRow {
                 VStack(alignment: .leading) {
-                    Text("Remote IP: ")
+                    Text("Nikola IP: ")
                         .foregroundColor(.secondary)
-                    TextField("172.27.174.6", text: $arViewModel.remoteHost)
+                    TextField("172.27.183.246", text: $arViewModel.nikolaHost)
                         .keyboardType(.decimalPad)
                         .accentColor(.accentColor)
                         .foregroundColor(Color(UIColor.darkGray))
                         .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .onChange(of: arViewModel.remoteHost, perform: { value in
-                            arViewModel.remote_host_changed(to: value)
+                        .onChange(of: arViewModel.nikolaHost, perform: { value in
+                            arViewModel.nikola_host_changed(to: value)
                         })
                 }.padding()
                 VStack(alignment: .leading) {
                     Text("Port: ")
                         .foregroundColor(.secondary)
-                    TextField("12002", value: $arViewModel.remotePort, formatter: NumberFormatter())
+                    TextField("12000", value: $arViewModel.nikolaPort, formatter: NumberFormatter())
                         .keyboardType(.numberPad)
                         .accentColor(.accentColor)
                         .foregroundColor(Color(UIColor.darkGray))
                         .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .onChange(of: arViewModel.remotePort, perform: { value in
-                            arViewModel.remote_port_changed(to: value)
+                        .onChange(of: arViewModel.nikolaPort, perform: { value in
+                            arViewModel.nikola_port_changed(to: value)
                         })
                 }.padding()
                 Image(systemName: arViewModel.connected ? "antenna.radiowaves.left.and.right" : "antenna.radiowaves.left.and.right.slash")
@@ -59,49 +59,11 @@ struct MainSettingView: View {
                     .frame(width: 40, height: 40)
                     .foregroundColor(arViewModel.connected ? .teal : .orange)
                     .onTapGesture {
-                        arViewModel.connected ? arViewModel.request_disconnect() : arViewModel.request_connect()
+                        arViewModel.connected ? arViewModel.request_disconnect_from_nikola() : arViewModel.request_connect_to_nikola()
                     }
                     .padding()
             }
-            
             Divider().gridCellUnsizedAxes(.horizontal)
-            GridRow {
-                Text("SAMPLE FACES")
-                    .padding()
-                VStack {
-                    Text("Num samples:")
-                        .foregroundColor(.secondary)
-                    TextField("5", value: $arViewModel.numSamples, formatter: NumberFormatter())
-                        .keyboardType(.numberPad)
-                        .accentColor(.accentColor)
-                        .foregroundColor(Color(UIColor.darkGray))
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .onChange(of: arViewModel.numSamples, perform: { value in
-                            arViewModel.num_samples_changed(to: value)
-                        })
-                }.padding()
-                ZStack {
-                    Image(systemName: "play.circle")
-                        .font(.system(size: 40))
-                        .onTapGesture {
-                            arViewModel.start_sampling()
-                        }
-                        .scaleEffect((arViewModel.sampleModel?.isSampling ?? true) ? 0 : 1)
-                        .opacity((arViewModel.sampleModel?.isSampling ?? true) ? 0 : 1)
-                        .animation(.interpolatingSpring(stiffness: 170, damping: 15), value: (arViewModel.sampleModel?.isSampling ?? true))
-                    Image(systemName: "stop.circle")
-                        .font(.system(size: 40))
-                        .onTapGesture {
-                            arViewModel.stop_sampling()
-                        }
-                        .scaleEffect((arViewModel.sampleModel?.isSampling ?? true) ? 1 : 0)
-                        .opacity((arViewModel.sampleModel?.isSampling ?? true) ? 1 : 0)
-                        .animation(.interpolatingSpring(stiffness: 170, damping: 15), value: !(arViewModel.sampleModel?.isSampling ?? true))
-
-                }
-            }
-            Divider().gridCellUnsizedAxes(.horizontal)
-            
             GridRow {
                 MessageView()
                     .gridCellColumns(2)

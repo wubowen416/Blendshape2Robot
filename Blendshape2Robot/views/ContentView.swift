@@ -12,6 +12,10 @@ import RealityKit
 struct ContentView: View {
     @StateObject var arViewModel = ArViewModel()
     @State private var showSetting = false
+    @State private var buttonColor: Color = .blue
+    @State private var colorIdx: Int = 0
+    private let colors: [Color] = [.blue, .brown, .cyan, .green, .indigo,
+        .mint, .orange, .purple, .red, .teal, .yellow]
     
     var body: some View {
         ZStack {
@@ -37,12 +41,30 @@ struct ContentView: View {
                             
                         }
                         .padding()
-                    Image(systemName: (arViewModel.sampleModel?.isSampling ?? true) ? "play" : "play.slash")
+                    Image(systemName: arViewModel.solverConnected ? "antenna.radiowaves.left.and.right" : "antenna.radiowaves.left.and.right.slash")
                         .resizable()
                         .scaledToFit()
                         .frame(width: 50, height: 50)
-                        .foregroundColor(.red)
+                        .foregroundColor(.green)
+                        .onTapGesture {
+                            
+                        }
                         .padding()
+                    Image(systemName: "paperplane.circle")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 50, height: 50)
+                        .foregroundColor(buttonColor)
+                        .padding()
+                        .onTapGesture {
+                            arViewModel.map_current_blendshape()
+                            if colorIdx < colors.count - 1 {
+                                colorIdx += 1
+                            } else {
+                                colorIdx = 0
+                            }
+                            buttonColor = colors[colorIdx]
+                        }
                 }
                 
             }

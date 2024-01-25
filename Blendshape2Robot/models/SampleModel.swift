@@ -10,16 +10,25 @@ import Combine
 
 class SampleModel {
     var arViewModel: ArViewModel
+    var rigSafer = RigSafer()
     var isSampling: Bool = false
     var messages: [String] = []
-    var faceBlendShapes = [Float](repeating: 0.0, count: FaceBlendShape.allCases.count)
     private var csvFile = CsvFile()
     
     init(arViewModel: ArViewModel) {
         self.arViewModel = arViewModel
     }
     
-    func start_sampling(numSamples: Int, motionClient: MotionTcpClient) {
+    func safen_rig(rig: inout [Int]) {
+        rigSafer.safen_rig(rig: &rig, maxValue: arViewModel.rigMaximum)
+        
+        // Do not move neck
+        rig[32] = 128
+        rig[33] = 128
+        rig[34] = 128
+    }
+    
+    func start_sampling(numSamples: Int, nikolaClient: NikolaTcpClient) {
         if isSampling {
             messages.append("Sampling has already started.")
             return
@@ -32,16 +41,23 @@ class SampleModel {
         // Background sampling
         DispatchQueue.global(qos: .userInitiated).async() {
             // Main loop
+            let start = DispatchTime.now()
+            
             for i in 0 ..< numSamples {
                 // Perform inital pose
-//              motionClient.send_ctl_cmd(initialRigs)
-                sleep(1) // Wait 1 second for control to complete
+                // motionClient.send_ctl_cmd(initialRigs)
+                // sleep(1) // Wait 1 second for control to complete
 
                 // Perform randomly sampled pose
                 for j in 0 ..< targetRig.count {
-                    targetRig[j] = Int.random(in: 0 ... 255)
+                    targetRig[j] = Int.random(in: 0 ... self.arViewModel.rigMaximum)
                 }
-//              motionClient.send_ctl_cmd(targetRigs)
+                
+                if self.arViewModel.safeRig {
+                    self.safen_rig(rig: &targetRig)
+                }
+                
+                nikolaClient.send_ctl_cmd(targetRig)
                 sleep(1) // Wait 1 second for control to complete
     
                 // Cache data
@@ -56,6 +72,11 @@ class SampleModel {
                 }
             }
             self.messages.append("Sampling stopped.")
+            
+            let end = DispatchTime.now()
+            let nanoTime = end.uptimeNanoseconds - start.uptimeNanoseconds
+            let timeInterval = Double(nanoTime) / 1_000_000_000 // May overflow
+            self.messages.append("Elapsed time: \(timeInterval) seconds")
             
             // Save cached data to file
             self.csvFile.save_and_empty_nikola_rig()

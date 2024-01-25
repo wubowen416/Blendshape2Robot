@@ -10,21 +10,32 @@ import Foundation
 struct AppSetting: Codable {
     var showStatistics: Bool
     var showFaceMesh: Bool
-    var remotePort: Int
-    var remoteHost: String
-    init(showStatics: Bool, showFaceMesh: Bool, remotePort: Int, remoteHost: String) {
+    var nikolaHost: String
+    var nikolaPort: Int
+    var solverHost: String
+    var solverPort: Int
+    init(showStatics: Bool, 
+         showFaceMesh: Bool,
+         nikolaHost: String,
+         nikolaPort: Int,
+         solverHost: String,
+         solverPort: Int) {
         self.showStatistics = showStatics
         self.showFaceMesh = showFaceMesh
-        self.remotePort = remotePort
-        self.remoteHost = remoteHost
+        self.nikolaHost = nikolaHost
+        self.nikolaPort = nikolaPort
+        self.solverHost = solverHost
+        self.solverPort = solverPort
     }
 }
 
 extension AppSetting: Equatable {
     static func == (lhs: AppSetting, rhs: AppSetting) -> Bool {
         return lhs.showStatistics == rhs.showStatistics &&
-        lhs.remotePort == rhs.remotePort &&
-        lhs.remoteHost == rhs.remoteHost
+        lhs.nikolaPort == rhs.nikolaPort &&
+        lhs.nikolaHost == rhs.nikolaHost &&
+        lhs.solverHost == rhs.solverHost &&
+        lhs.solverPort == rhs.solverPort
     }
 }
 

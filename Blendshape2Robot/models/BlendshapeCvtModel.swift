@@ -11,16 +11,22 @@ class BlendshapeCvtModel {
     var setting = AppSetting(
         showStatics: false,
         showFaceMesh: true,
-        remotePort: 12002,
-        remoteHost: "172.27.174.6"
+        nikolaHost: "172.27.183.245",
+        nikolaPort: 12000,
+        solverHost: "172.27.183.117",
+        solverPort: 65432
+        
     )
     private var previousSetting = AppSetting(
         showStatics: false,
         showFaceMesh: true,
-        remotePort: 12002,
-        remoteHost: "172.27.174.6"
+        nikolaHost: "172.27.183.245",
+        nikolaPort: 12002,
+        solverHost: "172.27.183.117",
+        solverPort: 65432
     )
-    internal lazy var motionClient = MotionTcpClient()
+    internal lazy var nikolaClient = NikolaTcpClient()
+    internal lazy var solverClient = SolverTcpClient()
     internal var csvFile = CsvFile()
     
     init() {
@@ -41,8 +47,10 @@ class BlendshapeCvtModel {
     }
     
     func update_members_setting() {
-        motionClient.host = setting.remoteHost
-        motionClient.port = setting.remotePort
+        nikolaClient.host = setting.nikolaHost
+        nikolaClient.port = setting.nikolaPort
+        solverClient.host = setting.solverHost
+        solverClient.port = setting.solverPort  
     }
     
     func save_config() {
@@ -61,15 +69,27 @@ class BlendshapeCvtModel {
         }
     }
     
-    func connect_motion_server() {
+    func connect_to_nikola() {
         DispatchQueue.global(qos: .userInitiated).async {
-            self.motionClient.connect_host()
+            self.nikolaClient.connect_host()
         }
     }
     
-    func disconnect() {
+    func disconnect_from_nikola() {
         DispatchQueue.global(qos: .userInitiated).async {
-            self.motionClient.disconnect()
+            self.nikolaClient.disconnect()
+        }
+    }
+    
+    func connect_to_solver() {
+        DispatchQueue.global(qos: .userInitiated).async {
+            self.solverClient.connect_host()
+        }
+    }
+    
+    func disconnect_from_solver() {
+        DispatchQueue.global(qos: .userInitiated).async {
+            self.solverClient.disconnect()
         }
     }
 }

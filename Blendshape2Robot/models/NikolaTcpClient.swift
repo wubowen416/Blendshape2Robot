@@ -8,7 +8,7 @@
 import Foundation
 import NIO
 
-class MotionTcpClient {
+class NikolaTcpClient {
     var connected = false
     var host = ""
     var port = 0
@@ -62,7 +62,7 @@ class MotionTcpClient {
     }
 }
 
-extension MotionTcpClient: ChannelInboundHandler {
+extension NikolaTcpClient: ChannelInboundHandler {
     typealias InboundIn = ByteBuffer
     typealias OutboundOut = ByteBuffer
     

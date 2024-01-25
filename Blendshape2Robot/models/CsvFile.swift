@@ -14,6 +14,9 @@ class CsvFile {
     private var faceMeshY: [[Float]] = [[]]
     private var faceMeshZ: [[Float]] = [[]]
     private var nikolaRigs: [[Int]] = [[]]
+    private var solvedNikolaRigs: [[Int]] = [[]]
+    private var solvedFaceBlendShapes: [[Float]] = [[]]
+    private var targetFaceBlendShapes: [[Float]] = [[]]
     
     func update_blendshape(_ blendshape: [Float]) {
         faceBlendShapes.append(blendshape)
@@ -21,6 +24,18 @@ class CsvFile {
     
     func update_nikola_rig(_ rig: [Int]) {
         nikolaRigs.append(rig)
+    }
+    
+    func update_solved_nikola_rig(_ rig: [Int]) {
+        solvedNikolaRigs.append(rig)
+    }
+    
+    func update_target_blendshape(_ blendshape: [Float]) {
+        targetFaceBlendShapes.append(blendshape)
+    }
+    
+    func update_solved_blendshape(_ blendshape: [Float]) {
+        solvedFaceBlendShapes.append(blendshape)
     }
     
     func update_mesh(_ meshVertices: [vector_float3]) {
@@ -55,7 +70,7 @@ class CsvFile {
                         } else {
                             sep = "\n"
                         }
-                        dataString += String(format: "%.3f", val) + sep
+                        dataString += String(format: "%.2f", val) + sep
                     }
                 }
                 try dataString.write(to: fileUrl, atomically: true, encoding: .utf8)
@@ -106,5 +121,17 @@ class CsvFile {
     
     func save_and_empty_blendshape () {
         save_csv_float(dataArr: faceBlendShapes, filename: "faceBlendShapes.csv")
+    }
+    
+    func save_and_empty_solved_nikola_rig () {
+        save_csv_int(dataArr: solvedNikolaRigs, filename: "solvedNikolaRigs.csv")
+    }
+    
+    func save_and_empty_target_blendshape () {
+        save_csv_float(dataArr: targetFaceBlendShapes, filename: "targetFaceBlendShapes.csv")
+    }
+    
+    func save_and_empty_solved_blendshape () {
+        save_csv_float(dataArr: solvedFaceBlendShapes, filename: "solvedFaceBlendShapes.csv")
     }
 }
